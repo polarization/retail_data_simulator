@@ -82,7 +82,10 @@ with open('./data/truth_path.json', 'w') as tp, \
         rr.flush()
 
 snapshot_num = 0
+count_num = 0
 for p in product_list:
+    count_num += p.count_event_num
     if p.product_name == 'Multi':
         snapshot_num += p.snapshot_num
 print("snapshot_num:", snapshot_num)
+print("count_num:", count_num)

@@ -11,6 +11,7 @@ class BaseCount(object):
         self.in_district = in_district
         self.in_possibility = in_possibility
         self.out_possibility = out_possibility
+        self.count_event_num = 0
 
     def get_inout_data(self, bug):
         truth_data = []
@@ -29,9 +30,11 @@ class BaseCount(object):
                 if data_type == 'in' and seed < self.in_possibility:
                     real_data.append(
                         {'ts': ts, 'position': position, data_type: 1})
+                    self.count_event_num += 1
                 if data_type == 'out' and seed < self.out_possibility:
                     real_data.append(
                         {'ts': ts, 'position': position, data_type: 1})
+                    self.count_event_num += 1
         return truth_data, real_data
 
     def _judge_inout_data_type(self, index, truth_path):
