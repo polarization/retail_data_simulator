@@ -39,6 +39,15 @@ face_buckets = basic.get_face_buckets(arena, vip_list, staff_list,
                                       building.guest_time_mean)
 product_list = basic.get_product_list(arena, face_buckets,
                                       building.position_device_dict)
+mini_num = 0
+multi_num = 0
+for p in product_list:
+    if p.product_name == 'Mini':
+        mini_num += 1
+    else:
+        multi_num += 1
+print('mini num:', mini_num)
+print('multi num:', multi_num)
 daily_guest_list = basic.get_daily_guest_list(building.daily_size,
                                               building.vip_ratio,
                                               guest_list,
