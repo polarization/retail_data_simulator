@@ -23,7 +23,7 @@ edge_weight = {'usual': 3.0, 'likely': 0.5, 'unlikely': 0.1}
 district_weight_add_decay = [30, 15, 5, 2, 1]
 assert 0 not in district_weight_add_decay
 daily_size = 30000
-am_size = 9000
+am_size_ratio = 0.3
 am_peak_time = 3600 * 12
 am_sigma = 2700
 pm_peak_time = 3600 * 18

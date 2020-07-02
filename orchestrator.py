@@ -24,7 +24,8 @@ building = Building()
 for k in building_dict.keys():
     setattr(building, k, building_dict[k])
 
-pm_size = building.daily_size - building.am_size
+am_size = int(building.daily_size * building.am_size_ratio)
+pm_size = building.daily_size - am_size
 vip_list = basic.get_uuid_list(building.vip_size)
 staff_list = basic.get_uuid_list(building.staff_size)
 guest_list = basic.get_uuid_list(building.guest_size)
@@ -53,7 +54,7 @@ daily_guest_list = basic.get_daily_guest_list(building.daily_size,
                                               guest_list,
                                               vip_list, staff_list)
 in_time_data = basic.simulate_in_time_data(building.am_peak_time,
-                                           building.am_sigma, building.am_size,
+                                           building.am_sigma, am_size,
                                            building.pm_peak_time,
                                            building.pm_sigma, pm_size, arena)
 time_currency_data = basic.simulate_time_currency_data(

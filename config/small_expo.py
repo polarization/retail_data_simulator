@@ -35,7 +35,7 @@ position_device_dict = [{'position': 'a', 'product': 'T', 'in_district': 1},
                         {'position': 'f', 'product': 'T', 'in_district': 3}]
 
 daily_size = 30000
-am_size = 9000
+am_size_ratio = 0.3
 am_peak_time = 3600 * 12
 am_sigma = 2700
 pm_peak_time = 3600 * 18
