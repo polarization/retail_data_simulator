@@ -22,8 +22,10 @@ edges = [('a', 'b', {'district': 1, 'mean': 600, 'std': 300, 'min': 30,
          ('e', 'f', {'district': 3, 'mean': 900, 'std': 240, 'min': 45,
                      'weight_add': 0})]
 
-edge_weight = {'usual': 10, 'likely': 3, 'unlikely': 1}
-district_weight_add_decay = [30, 15, 5, 2, 1, 0]
+edge_weight = {'usual': 3.0, 'likely': 0.5, 'unlikely': 0.1}
+# should not have zero
+district_weight_add_decay = [30, 15, 5, 2, 1]
+assert 0 not in district_weight_add_decay
 
 position_device_dict = [{'position': 'a', 'product': 'T', 'in_district': 1},
                         {'position': 'b', 'product': 'L', 'in_district': 2},

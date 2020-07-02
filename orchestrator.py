@@ -6,7 +6,7 @@ import tools.basic as basic
 from entity.bug import Bug
 
 parser = argparse.ArgumentParser(description='simulate retail data')
-parser.add_argument('--building_name', default='galaxy-tower', type=str,
+parser.add_argument('--building_name', default='galaxy-tower-0', type=str,
                     help='building name with location information')
 args = parser.parse_args()
 

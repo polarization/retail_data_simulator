@@ -1,5 +1,6 @@
 import networkx as nx
 import numpy as np
+import math
 
 
 class Bug(object):
@@ -55,7 +56,7 @@ class Bug(object):
         self.time_currency -= time_cost
         self.truth_path.append({'ts': self.current_ts,
                                 'position': self.current_position})
-        if time_cost > (1.1 * mean):
+        if time_cost > (1.01 * mean):
             if self.current_district not in self.passed_district_dict.keys():
                 self.passed_district_dict[self.current_district] = 1
             else:
@@ -74,19 +75,22 @@ class Bug(object):
                            len(self.district_weight_add_decay) - 1)
                 district_weight_add = self.district_weight_add_decay[ever]
             if n == self.last_position:
-                item = self.edge_weight_dict[
-                           'unlikely'] + district_weight_add + weight_add
+                item = math.ceil(self.edge_weight_dict[
+                                     'unlikely'] * (
+                                         district_weight_add + weight_add))
                 weight_dict[n] = range(sum, sum + item)
                 sum += item
             elif self.arena[self.current_position][n]['district'] == \
                     self.current_district:
-                item = self.edge_weight_dict[
-                           'likely'] + district_weight_add + weight_add
+                item = math.ceil(self.edge_weight_dict[
+                                     'likely'] * (
+                                         district_weight_add + weight_add))
                 weight_dict[n] = range(sum, sum + item)
                 sum += item
             else:
-                item = self.edge_weight_dict[
-                           'usual'] + district_weight_add + weight_add
+                item = math.ceil(self.edge_weight_dict[
+                                     'usual'] * (
+                                             district_weight_add + weight_add))
                 weight_dict[n] = range(sum, sum + item)
                 sum += item
         seed = np.random.randint(sum)
