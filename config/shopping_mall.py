@@ -22,7 +22,7 @@ edge_weight = {'usual': 3.0, 'likely': 0.5, 'unlikely': 0.1}
 # should not have zero
 district_weight_add_decay = [30, 15, 5, 2, 1]
 assert 0 not in district_weight_add_decay
-daily_size = 30000
+mean_daily_size = 30000
 am_size_ratio = 0.3
 am_peak_time = 3600 * 12
 am_sigma = 2700
@@ -36,7 +36,7 @@ end_time = 3600 * 22
 last_in_time = 3600 * 21.5
 min_correct_alert_ratio = 0.9
 max_missing_alert_ratio = 0.1
-vip_ratio = 0.001
+mean_vip_ratio = 0.001
 guest_time_mean = 10800
 guest_time_sigma = 3600
 guest_time_min = 1800
@@ -223,8 +223,8 @@ if __name__ == '__main__':
                      'cashier_weight_add': cashier_weight_add,
                      'edge_weight': edge_weight,
                      'district_weight_add_decay': district_weight_add_decay,
-                     'daily_size': daily_size,
-                     'am_size': am_size,
+                     'mean_daily_size': mean_daily_size,
+                     'am_size_ratio': am_size_ratio,
                      'am_peak_time': am_peak_time,
                      'am_sigma': am_sigma,
                      'pm_peak_time': pm_peak_time,
@@ -237,7 +237,7 @@ if __name__ == '__main__':
                      'last_in_time': last_in_time,
                      'min_correct_alert_ratio': min_correct_alert_ratio,
                      'max_missing_alert_ratio': max_missing_alert_ratio,
-                     'vip_ratio': vip_ratio,
+                     'mean_vip_ratio': mean_vip_ratio,
                      'guest_time_mean': guest_time_mean,
                      'guest_time_sigma': guest_time_sigma,
                      'guest_time_min': guest_time_min,

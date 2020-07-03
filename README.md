@@ -31,7 +31,7 @@ many virtual building as you like.
 
 Then you can generate truth data and prediction data as many times as you 
 like. One day's data for every times' calling.
-`python3 orchestrator.py --building_name=galaxy-tower`
+`python3 orchestrator.py --building_name=galaxy-tower-0 --date=2020-07-03`
 
 # Basic Concept
 
@@ -116,7 +116,7 @@ tools module:
 entry of simulator, you can just point out which building info you need to 
 use and all the data would be simulated and saved in ./data.
 
-`python3 orchestrator.py --building_name=small-expo`
+`python3 orchestrator.py --building_name=small-expo --date=2020-07-03`
 
 # Others
 ### What requests does the arena's connectivity graph design need to fit?

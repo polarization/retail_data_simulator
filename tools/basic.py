@@ -32,13 +32,13 @@ def get_uuid_list(size):
 
 def get_daily_guest_list(daily_size, vip_ratio, guest_list, vip_list,
                          staff_list):
-    normal_guest = sample(guest_list, round(
-        daily_size * (1 - vip_ratio) - len(staff_list)))
     vip_guest = sample(vip_list, round(daily_size * vip_ratio))
+    normal_guest = sample(guest_list,
+                          int(daily_size - len(vip_guest) - len(staff_list)))
     daily_guest_list = normal_guest + vip_guest + staff_list
     shuffle(daily_guest_list)
     assert len(daily_guest_list) == daily_size
-    return daily_guest_list
+    return daily_guest_list, len(vip_guest)
 
 
 def get_face_buckets(arena, vip_list, staff_list, vip_ratio, guest_time_mean):

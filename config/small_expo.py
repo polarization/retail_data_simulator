@@ -34,7 +34,7 @@ position_device_dict = [{'position': 'a', 'product': 'T', 'in_district': 1},
                         {'position': 'e', 'product': 'L', 'in_district': 3},
                         {'position': 'f', 'product': 'T', 'in_district': 3}]
 
-daily_size = 30000
+mean_daily_size = 30000
 am_size_ratio = 0.3
 am_peak_time = 3600 * 12
 am_sigma = 2700
@@ -48,7 +48,7 @@ end_time = 3600 * 22
 last_in_time = 3600 * 21.5
 min_correct_alert_ratio = 0.9
 max_missing_alert_ratio = 0.1
-vip_ratio = 0.001
+mean_vip_ratio = 0.001
 guest_time_mean = 9000
 guest_time_sigma = 3600
 guest_time_min = 1800
@@ -68,8 +68,8 @@ if __name__ == '__main__':
                      'cashier_weight_add': None,
                      'edge_weight': edge_weight,
                      'district_weight_add_decay': district_weight_add_decay,
-                     'daily_size': daily_size,
-                     'am_size': am_size,
+                     'mean_daily_size': mean_daily_size,
+                     'am_size_ratio': am_size_ratio,
                      'am_peak_time': am_peak_time,
                      'am_sigma': am_sigma,
                      'pm_peak_time': pm_peak_time,
@@ -82,7 +82,7 @@ if __name__ == '__main__':
                      'last_in_time': last_in_time,
                      'min_correct_alert_ratio': min_correct_alert_ratio,
                      'max_missing_alert_ratio': max_missing_alert_ratio,
-                     'vip_ratio': vip_ratio,
+                     'mean_vip_ratio': mean_vip_ratio,
                      'guest_time_mean': guest_time_mean,
                      'guest_time_sigma': guest_time_sigma,
                      'guest_time_min': guest_time_min,

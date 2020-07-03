@@ -91,15 +91,19 @@ def get_fr_phase_transition_point(triple_data_path, num_gallery,
         range_B = calculate_upper_limit(triple_data, num_gallery,
                                         max_missing_alert_ratio)
         available_range = sorted(list(set(range_A).intersection(set(range_B))))
+        if not available_range:
+            raise Exception('algorithm not good enough or request too high.')
         if threshold is None:
             return find_best_threshold(triple_data,
                                        available_range,
                                        num_gallery,
                                        ratio_gallery_imposter)
-        else:
+        elif threshold in available_range:
             return get_phase_transition_point_by_threshold(triple_data,
                                                            num_gallery,
                                                            threshold)
+        else:
+            raise Exception('threshold not fit for request.')
 
 
 if __name__ == '__main__':
